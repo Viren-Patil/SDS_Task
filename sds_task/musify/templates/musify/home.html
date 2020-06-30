@@ -1,0 +1,10 @@
+{% extends "musify/base.html" %} 
+{% block content %} 
+
+  <h1 style="text-align: center;">Welcome to Musify!</h1>
+  {% for k in data %}
+    {% for j, i in k.items %}
+      {{ j }} : {{ i }}<br/><hr/>
+    {% endfor %}
+  {% endfor %}
+{% endblock content %}
