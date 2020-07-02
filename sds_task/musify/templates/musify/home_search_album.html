@@ -1,4 +1,4 @@
-{% extends "musify/base.html" %} 
+{% extends "musify/base_album.html" %} 
 {% load static %}
 {% block content %} 
 <center>
@@ -41,22 +41,5 @@
       {% endif %}
     {% endfor %}
   {% endfor %}
-{% else %}
-  <h1 style="text-align: center; margin-bottom: 30px;">New Releases</h1>
-  <div class="row">
-    {% for k in data %}
-      <div class="col-md-4">
-        <center>
-            <div class="containerc">
-              <img src="{{k.images.1.url}}" class="mb-3 image" alt="Album Cover Art">
-              <div class="middle">
-                <h5 class="text">Album<br/><a class="c" href="{{k.external_urls.spotify}}" target="_blank" style="text-decoration: none; font-size: 18px;">{{k.name}}</a></h5>
-                <h5 class="text">Artist<br/><a class="c" href="{{k.artists.0.external_urls.spotify}}" target="_blank" style="text-decoration: none; font-size: 18px;">{{k.artists.0.name}}</a></h5>
-              </div>
-            </div>
-        </center>
-      </div>
-    {% endfor %}
-  </div>
 {% endif %}
 {% endblock content %}

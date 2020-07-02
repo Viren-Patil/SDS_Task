@@ -1,0 +1,61 @@
+{% extends "musify/base.html" %} 
+{% load static %}
+{% block content %} 
+<center>
+    <div class="row">
+      <div class="col-md-3">
+        <a href="{% url 'home-search-artist' %}"><img src="{% static 'musify/newrelease.jpg' %}" style="border: 1.5px solid #fffdd0;" height="200px" width="200px" class="mb-3 image" alt="Album Cover Art"></a>
+      </div>
+      <div class="col-md-3">
+        <a href="{% url 'home-search-playlist' %}"><img src="{% static 'musify/newrelease.jpg' %}" style="border: 1.5px solid #fffdd0;" height="200px" width="200px" class="mb-3 image" alt="Album Cover Art"></a>
+      </div>
+      <div class="col-md-3">
+        <a href="{% url 'home-search-album' %}"><img src="{% static 'musify/newrelease.jpg' %}" style="border: 1.5px solid #fffdd0;" height="200px" width="200px" class="mb-3 image" alt="Album Cover Art"></a>
+      </div>
+      <div class="col-md-3">
+        <a href="{% url 'home' %}"><img src="{% static 'musify/newrelease.jpg' %}" style="border: 1.5px solid #fffdd0;" height="200px" width="200px" class="mb-3 image" alt="Album Cover Art"></a>
+      </div>
+      <div class="col-md-3">
+        <a href="{% url 'home-pop' %}"><img src="{% static 'musify/pop.jpg' %}" style="border: 1.5px solid #fffdd0;" height="200px" width="200px" class="mb-3 image" alt="Album Cover Art"></a>
+      </div>
+      <div class="col-md-3">
+        <a href="{% url 'home-party' %}"><img src="{% static 'musify/party.jpg' %}" style="border: 1.5px solid #fffdd0;" height="200px" width="200px" class="mb-3 image" alt="Album Cover Art"></a>
+      </div>
+      <div class="col-md-3">
+        <a href="{% url 'home-hiphop' %}"><img src="{% static 'musify/hiphop.jpg' %}" style="border: 1.5px solid #fffdd0;" height="200px" width="200px" class="mb-3 image" alt="Album Cover Art"></a>
+      </div>
+      <div class="col-md-3">
+        <a href="{% url 'home-bollywood' %}"><img src="{% static 'musify/bollywood.jpg' %}" style="border: 1.5px solid #fffdd0;" height="200px" width="200px" class="mb-3 image" alt="Album Cover Art"></a>
+      </div>
+    </div>
+  </center>
+<hr/>
+{% if flag == "search" %}
+  <h1 style="text-align: center;">Search Results</h1>
+  {% for k in data %}
+    {% for j, i in k.items %}
+      {% if j == 'images' %}
+        <img src="{{i.1.url}}" alt=""><br/><hr/>
+      {% else %}
+      {{ j }} : {{ i }}<br/><hr/>
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+{% else %}
+<h1 style="text-align: center; margin-bottom: 30px;">Hip Hop</h1>
+  <div class="row">
+    {% for k in data %}
+      <div class="col-md-4">
+        <center>
+            <div class="containerc">
+              <img src="{{k.images.0.url}}" class="mb-3 image" alt="Album Cover Art">
+              <div class="middle">
+                <h5 class="text">Playlist<br/><a class="c" href="{{k.external_urls.spotify}}" target="_blank" style="text-decoration: none; font-size: 18px;">{{k.name}}</a></h5>
+              </div>
+            </div>
+        </center>
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
+{% endblock content %}

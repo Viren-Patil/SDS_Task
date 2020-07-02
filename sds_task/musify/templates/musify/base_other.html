@@ -33,17 +33,23 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarToggle">
           <div class="navbar-nav mr-auto">
-          </div> 
+              
+          </div>
           <!-- Navbar Right Side -->
           
-          <div class="navbar-nav">
-            <a href="{% url 'profile' %}"><img class="rounded-circle article-img" style="float: left; width: 42px; height: 42px;" src="{{ user.profile.image.url }}"></a>
+          <div class="navbar-nav float-right">
+            <p class="nav-item" style="font-size: 17px; color: white; margin-top: 2px; margin-bottom: 0; padding-bottom: 0px; ">Welcome {{ user.first_name }}!</p>
+          <!--<div class="navbar-nav float-right" style="margin: auto;">-->
+          </div>
+
+          <div class="navbar-nav float-right" style="margin-left: 1rem; margin-bottom: auto;">
+            <a href="{% url 'profile' %}"><img class="rounded-circle article-img" style="float: left; width: 42px; height: 42px;" src="{{ user.profile.image.url }}" data-toggle="tooltip" data-placement="bottom" title="Profile" ></a>
             <a class="nav-item fas fa-sign-out-alt fa-lg dark-a mt-3" style="color: white; text-decoration: none;" data-toggle="tooltip" data-placement="bottom" title="Logout" href="{% url 'logout' %}"></a>
           </div>
         </div>
       </div>
     </nav>
-  </header>
+</header>
       
     <main role="main" class="container">
         <div class="row">

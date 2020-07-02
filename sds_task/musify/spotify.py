@@ -109,5 +109,20 @@ class SpotifyAPI(object):
             return {}
         return r.json()
 
+    def get_category_playlists(self, category):
+        headers = self.get_resource_header()
+        endpoint = f"https://api.spotify.com/v1/browse/categories/{category}/playlists"
+        if category=="bollywood":
+            data = urlencode({"country": "IN", "limit": "12"})
+        else:
+            data = urlencode({"country": "IN"})
+        lookup_url = f"{endpoint}?{data}"
+        print(lookup_url)
+        r = requests.get(lookup_url, headers=headers)
+        print(r.status_code)
+        if r.status_code not in range(200, 299):
+            return {}
+        return r.json()
+
         
 client = SpotifyAPI(client_id, client_secret)
