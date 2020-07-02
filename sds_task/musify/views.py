@@ -14,7 +14,11 @@ def home(request):
     if 'search' in request.GET:
             search_term =  request.GET['search']
             r = sp.client.search(search_term, "artist")
-    return render(request, 'musify/home.html', {'title': 'Home', 'data': r['artists']['items']})
+            return render(request, 'musify/home.html', {'title': 'Home', 'data': r['artists']['items'], "flag": "search"})
+
+    else:
+        r = sp.client.new_releases()
+        return render(request, 'musify/home.html', {'title': 'Home', 'data': r["albums"]["items"], "flag": "new_releases"})
 
 # class PostListViewVolunteer(ListView):
 #     model = Post

@@ -154,3 +154,47 @@ a.author-home:hover {
   box-shadow: 0 5px 15px 2px rgba(204, 204, 204, 0.20);
 }
 
+.containerc {
+  position: relative;
+  width: 100%;
+}
+
+.image {
+  border-radius: 10px;
+  opacity: 1;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.containerc:hover .image {
+  opacity: 0.1;
+}
+
+.containerc:hover .middle {
+  opacity: 1;
+}
+
+.text {
+  color: wheat;
+  font-size: 15px;
+  padding: 16px 16px;
+}
+
+.c {
+  color: #7f00ff;
+}
+
+a.c:hover {
+  color: #7f00ff;
+}
