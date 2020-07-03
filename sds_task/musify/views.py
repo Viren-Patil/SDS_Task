@@ -17,7 +17,7 @@ def home(request):
     if 'search' in request.GET:
             search_term =  request.GET['search']
             r = sp.client.search(search_term, "track")
-            return render(request, 'musify/home.html', {'title': 'Home', 'data': r['artists']['items'], "flag": "search"})
+            return render(request, 'musify/home.html', {'title': 'Home', 'data': r['tracks']['items'], "flag": "search"})
 
     else:
         r = sp.client.new_releases()
@@ -28,7 +28,7 @@ def home_search_artist(request):
     r = {}
     if 'search' in request.GET:
             search_term =  request.GET['search']
-            r = sp.client.search(search_term, "track")
+            r = sp.client.search(search_term, "artist")
             return render(request, 'musify/home_search_artist.html', {'title': 'Home', 'data': r['artists']['items'], "flag": "search"})
 
     else:
@@ -40,7 +40,7 @@ def home_search_playlist(request):
     r = {}
     if 'search' in request.GET:
             search_term =  request.GET['search']
-            r = sp.client.search(search_term, "track")
+            r = sp.client.search(search_term, "playlist")
             return render(request, 'musify/home_search_playlist.html', {'title': 'Home', 'data': r['artists']['items'], "flag": "search"})
 
     else:
@@ -52,7 +52,7 @@ def home_search_album(request):
     r = {}
     if 'search' in request.GET:
             search_term =  request.GET['search']
-            r = sp.client.search(search_term, "track")
+            r = sp.client.search(search_term, "album")
             return render(request, 'musify/home_search_album.html', {'title': 'Home', 'data': r['artists']['items'], "flag": "search"})
 
     else:
@@ -63,8 +63,8 @@ def home_search_album(request):
 def home_pop(request):
     r = {}
     if 'search' in request.GET:
-            search_term =  request.GET['track']
-            r = sp.client.search(search_term, "artist")
+            search_term =  request.GET['search']
+            r = sp.client.search(search_term, "track")
             return render(request, 'musify/pop.html', {'title': 'Home', 'data': r['artists']['items'], "flag": "search"})
 
     else:
@@ -75,8 +75,8 @@ def home_pop(request):
 def home_party(request):
     r = {}
     if 'search' in request.GET:
-            search_term =  request.GET['track']
-            r = sp.client.search(search_term, "artist")
+            search_term =  request.GET['search']
+            r = sp.client.search(search_term, "track")
             return render(request, 'musify/party.html', {'title': 'Home', 'data': r['artists']['items'], "flag": "search"})
 
     else:
@@ -87,8 +87,8 @@ def home_party(request):
 def home_hiphop(request):
     r = {}
     if 'search' in request.GET:
-            search_term =  request.GET['track']
-            r = sp.client.search(search_term, "artist")
+            search_term =  request.GET['search']
+            r = sp.client.search(search_term, "track")
             return render(request, 'musify/hiphop.html', {'title': 'Home', 'data': r['artists']['items'], "flag": "search"})
 
     else:
@@ -100,7 +100,7 @@ def home_bollywood(request):
     r = {}
     if 'search' in request.GET:
             search_term =  request.GET['search']
-            r = sp.client.search(search_term, "artist")
+            r = sp.client.search(search_term, "track")
             return render(request, 'musify/hiphop.html', {'title': 'Home', 'data': r['artists']['items'], "flag": "search"})
 
     else:

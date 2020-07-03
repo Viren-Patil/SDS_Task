@@ -31,7 +31,7 @@ body {
   .content-section {
     background: #0d0d0d;
     padding: 10px 20px;
-    border: 1px solid #262626;
+    border: 1px solid #faf0ff;
     border-radius: 3px;
     margin-bottom: 20px;
   }
@@ -197,4 +197,9 @@ a.author-home:hover {
 
 a.c:hover {
   color: #7f00ff;
+}
+
+.profile-background {
+  background-image: url('profile.jpg');
+  background-size: 1900px 1200px;
 }

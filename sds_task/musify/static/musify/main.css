@@ -1,7 +1,8 @@
 body {
-    background-color: #FAF0FF;
     color: #333333;
     margin-top: 5rem;
+    background-image: url('back_3.jpg');
+    background-size: 1800px 940px;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -32,7 +33,7 @@ body {
     background: #ffffff;
     padding: 10px 20px;
     border: 1px solid #dddddd;
-    border-radius: 3px;
+    border-radius: 10px;
     margin-bottom: 20px;
   }
   
