@@ -33,7 +33,7 @@ def home_search_artist(request):
 
     else:
         r = sp.client.new_releases()
-        return render(request, 'musify/home_search_artist.html', {'title': 'Home', 'data': r["albums"]["items"], "flag": "new_releases"})
+        return render(request, 'musify/home_search_artist.html', {'title': 'Home', 'data': r["albums"]["items"], "flag": "search_artist"})
 
 @login_required
 def home_search_playlist(request):
@@ -41,11 +41,11 @@ def home_search_playlist(request):
     if 'search' in request.GET:
             search_term =  request.GET['search']
             r = sp.client.search(search_term, "playlist")
-            return render(request, 'musify/home_search_playlist.html', {'title': 'Home', 'data': r['artists']['items'], "flag": "search"})
+            return render(request, 'musify/home_search_playlist.html', {'title': 'Home', 'data': r['playlists']['items'], "flag": "search"})
 
     else:
         r = sp.client.new_releases()
-        return render(request, 'musify/home_search_playlist.html', {'title': 'Home', 'data': r["albums"]["items"], "flag": "new_releases"})
+        return render(request, 'musify/home_search_playlist.html', {'title': 'Home', 'data': r["albums"]["items"], "flag": "search_playlist"})
 
 @login_required
 def home_search_album(request):
@@ -53,11 +53,11 @@ def home_search_album(request):
     if 'search' in request.GET:
             search_term =  request.GET['search']
             r = sp.client.search(search_term, "album")
-            return render(request, 'musify/home_search_album.html', {'title': 'Home', 'data': r['artists']['items'], "flag": "search"})
+            return render(request, 'musify/home_search_album.html', {'title': 'Home', 'data': r['albums']['items'], "flag": "search"})
 
     else:
         r = sp.client.new_releases()
-        return render(request, 'musify/home_search_album.html', {'title': 'Home', 'data': r["albums"]["items"], "flag": "new_releases"})
+        return render(request, 'musify/home_search_album.html', {'title': 'Home', 'data': r["albums"]["items"], "flag": "search_album"})
 
 @login_required
 def home_pop(request):
@@ -65,7 +65,7 @@ def home_pop(request):
     if 'search' in request.GET:
             search_term =  request.GET['search']
             r = sp.client.search(search_term, "track")
-            return render(request, 'musify/pop.html', {'title': 'Home', 'data': r['artists']['items'], "flag": "search"})
+            return render(request, 'musify/pop.html', {'title': 'Home', 'data': r['tracks']['items'], "flag": "search"})
 
     else:
         r = sp.client.get_category_playlists('pop')
@@ -77,7 +77,7 @@ def home_party(request):
     if 'search' in request.GET:
             search_term =  request.GET['search']
             r = sp.client.search(search_term, "track")
-            return render(request, 'musify/party.html', {'title': 'Home', 'data': r['artists']['items'], "flag": "search"})
+            return render(request, 'musify/party.html', {'title': 'Home', 'data': r['tracks']['items'], "flag": "search"})
 
     else:
         r = sp.client.get_category_playlists('party')
@@ -89,7 +89,7 @@ def home_hiphop(request):
     if 'search' in request.GET:
             search_term =  request.GET['search']
             r = sp.client.search(search_term, "track")
-            return render(request, 'musify/hiphop.html', {'title': 'Home', 'data': r['artists']['items'], "flag": "search"})
+            return render(request, 'musify/hiphop.html', {'title': 'Home', 'data': r['tracks']['items'], "flag": "search"})
 
     else:
         r = sp.client.get_category_playlists('hiphop')
@@ -101,7 +101,7 @@ def home_bollywood(request):
     if 'search' in request.GET:
             search_term =  request.GET['search']
             r = sp.client.search(search_term, "track")
-            return render(request, 'musify/hiphop.html', {'title': 'Home', 'data': r['artists']['items'], "flag": "search"})
+            return render(request, 'musify/hiphop.html', {'title': 'Home', 'data': r['tracks']['items'], "flag": "search"})
 
     else:
         r = sp.client.get_category_playlists('bollywood')

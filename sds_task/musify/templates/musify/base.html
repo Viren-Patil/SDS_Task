@@ -31,7 +31,7 @@
     <header class="site-header">
         <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
           <div class="container">
-              <a class="navbar-brand mr-1 logo-dark" style="font-size: 25px;" href="{% url 'home' %}">MUSIFY</a>
+              <a class="navbar-brand mr-1 logo-dark" style="font-size: 25px;" href="{% url 'home' %}"><img src="{% static 'musify/logo.png' %}" height="37px" width="100px" alt="MUSIFY logo"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
@@ -45,7 +45,7 @@
               <!-- Navbar Right Side -->
               
               <div class="navbar-nav float-right">
-                <p class="nav-item" style="font-size: 17px; color: white; margin-top: 2px; margin-bottom: 0; padding-bottom: 0px; ">Welcome {{ user.first_name }}!</p>
+                <p class="nav-item" style="font-size: 18px; color: white; margin-top: 2px; margin-bottom: 0; padding-bottom: 0px; ">Welcome {{ user.first_name }}!</p>
               <!--<div class="navbar-nav float-right" style="margin: auto;">-->
               </div>
 

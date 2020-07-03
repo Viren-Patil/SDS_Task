@@ -14,9 +14,9 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     {% if title %}
-        <title>SDS Task - {{ title  }}</title>
+        <title>SDS Task - {{ title }}</title>
     {% else %}
-        <title>SDS Task</title>
+        <title>SDS Task - Login/Register</title>
     {% endif %}
     <style>
       .box-shadow {
@@ -32,7 +32,7 @@
     <header class="site-header">
         <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
           <div class="container">
-              <a class="navbar-brand mr-4 logo-dark" style="font-size: 25px;" href="{% url 'login' %}">MUSIFY</a>
+            <a class="navbar-brand mr-1 logo-dark" style="font-size: 25px;" href="{% url 'home' %}"><img src="{% static 'musify/logo.png' %}" class="mr-3" height="37px" width="100px" alt="MUSIFY logo"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
