@@ -13,7 +13,7 @@ def register(request):
             save_it = form.save(commit=False)
             save_it.save()
             subject = 'Congratulations ' + save_it.first_name + '!'
-            message = 'Thank You ' + save_it.username +' !\nYou have successfully registered with us!!\nEnjoy and make full use of our app.\n\nNOTE: The default color theme of the app is light. You can change the theme from your profile.\n\nRegards,\nTeam MUSIFY'
+            message = 'Thank You ' + save_it.username +' !\nYou have successfully registered with us!!\nEnjoy and make full use of our app.\n\nNOTE: The default color theme of the app is dark. You can change the theme from your profile.\n\nRegards,\nTeam MUSIFY'
             from_email = settings.EMAIL_HOST_USER
             to_list = [save_it.email]
 

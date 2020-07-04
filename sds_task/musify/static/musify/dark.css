@@ -199,7 +199,14 @@ a.c:hover {
   color: #7f00ff;
 }
 
-.profile-background {
-  background-image: url('profile.jpg');
-  background-size: 1900px 1200px;
+label {
+  color: #F0FFF0;
+}
+
+.dark-legend {
+  color: #F0FFF0;
+}
+
+.dark-username {
+  color: #F0FFF0;
 }
