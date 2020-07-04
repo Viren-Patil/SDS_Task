@@ -1,14 +1,9 @@
 {% extends "musify/base_other.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <div class="content-section" style="position: absolute; left: 25%; width: 50%;">
+    <div class="content-section col-md-8" style="margin: auto;">
       <div class="media mb-3">
         <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
-        <div class="media-body">
-          <h2 class="account-heading profile-username dark-username">{{ user.username }}</h2>
-          <p class="text-secondary">{{ user.email }}</p>
-          <p class="text-secondary">{{ user.first_name }} {{ user.last_name }}</p>
-        </div>
       </div>
       <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
