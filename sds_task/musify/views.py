@@ -6,12 +6,14 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.db.models import Q
-from . import spotify as sp
+from . import spotify as sp                     # Imported the spotify.py module.
 
+# About page view method.
 def about(request):
     return render(request, 'musify/about.html', {'title': 'About'})
 
-@login_required
+@login_required                                 # Decorator used so that only authenticated user can view this page.
+# Method for New Releases tab.
 def home(request):
     r = {}
     if 'search' in request.GET:
@@ -23,7 +25,8 @@ def home(request):
         r = sp.client.new_releases()
         return render(request, 'musify/home.html', {'title': 'Home', 'data': r["albums"]["items"], "flag": "new_releases"})
 
-@login_required
+@login_required                                 # Decorator used so that only authenticated user can view this page.
+# Method for Artists tab.
 def home_search_artist(request):
     r = {}
     if 'search' in request.GET:
@@ -35,7 +38,8 @@ def home_search_artist(request):
         r = sp.client.new_releases()
         return render(request, 'musify/home_search_artist.html', {'title': 'Home', 'data': r["albums"]["items"], "flag": "search_artist"})
 
-@login_required
+@login_required                                 # Decorator used so that only authenticated user can view this page.
+# Method for Playlists tab.
 def home_search_playlist(request):
     r = {}
     if 'search' in request.GET:
@@ -47,7 +51,8 @@ def home_search_playlist(request):
         r = sp.client.new_releases()
         return render(request, 'musify/home_search_playlist.html', {'title': 'Home', 'data': r["albums"]["items"], "flag": "search_playlist"})
 
-@login_required
+@login_required                                 # Decorator used so that only authenticated user can view this page.
+# Method for Albums tab.
 def home_search_album(request):
     r = {}
     if 'search' in request.GET:
@@ -59,7 +64,8 @@ def home_search_album(request):
         r = sp.client.new_releases()
         return render(request, 'musify/home_search_album.html', {'title': 'Home', 'data': r["albums"]["items"], "flag": "search_album"})
 
-@login_required
+@login_required                                 # Decorator used so that only authenticated user can view this page.
+# Method for Pop tab.
 def home_pop(request):
     r = {}
     if 'search' in request.GET:
@@ -71,7 +77,8 @@ def home_pop(request):
         r = sp.client.get_category_playlists('pop')
         return render(request, 'musify/pop.html', {'title': 'Home', 'data': r["playlists"]["items"], "flag": "pop"})
 
-@login_required
+@login_required                                 # Decorator used so that only authenticated user can view this page.
+# Method for Party tab.
 def home_party(request):
     r = {}
     if 'search' in request.GET:
@@ -83,7 +90,8 @@ def home_party(request):
         r = sp.client.get_category_playlists('party')
         return render(request, 'musify/party.html', {'title': 'Home', 'data': r["playlists"]["items"], "flag": "party"})
 
-@login_required
+@login_required                                 # Decorator used so that only authenticated user can view this page.
+# Method for Hip-Hop tab.
 def home_hiphop(request):
     r = {}
     if 'search' in request.GET:
@@ -95,7 +103,8 @@ def home_hiphop(request):
         r = sp.client.get_category_playlists('hiphop')
         return render(request, 'musify/hiphop.html', {'title': 'Home', 'data': r["playlists"]["items"], "flag": "hiphop"})
 
-@login_required
+@login_required                                 # Decorator used so that only authenticated user can view this page.
+# Method for Bollywood tab.
 def home_bollywood(request):
     r = {}
     if 'search' in request.GET:

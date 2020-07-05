@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 
+# URL patterns for about, new-releases, pop, party, hiphop, bollywood and various search pages.
 urlpatterns = [
     path('home/', views.home, name='home'),
     path('pop/', views.home_pop, name='home-pop'),

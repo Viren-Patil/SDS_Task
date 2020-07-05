@@ -18,9 +18,9 @@ class Profile(models.Model):
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES, blank=True)
 
     def __str__(self):
-        return f'{self.user.username} Profile'
+        return f'{self.user.username} Profile'      # Dunder method to return a proper name to the profile in the admin's database.
 
-    def save(self, *args, **kwargs):
+    def save(self, *args, **kwargs):                # Method to reopen the uploaded profile pic, resize it and then save it again.
         super(Profile, self).save(*args, **kwargs)
 
         img = Image.open(self.image.path)

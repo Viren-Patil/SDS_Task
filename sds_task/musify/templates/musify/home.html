@@ -1,6 +1,7 @@
 {% extends "musify/base.html" %} 
 {% load static %}
 {% block content %} 
+<!-- Displaying the tabs -->
 <center>
   <div class="row">
     <div class="" style="width: 12.5%;">
@@ -30,14 +31,18 @@
   </div>
 </center>
 <hr/>
+
+<!-- Displaying search results -->
 {% if flag == "search" %}
-  <h1 style="text-align: center;">Search Results</h1>
+  <h1 style="text-align: center; margin-bottom: 30px;">Search Results</h1>
   <div class="row">
-    {% for k in data %}
+    <!-- Extracting data from the json response -->
+    {% for k in data %}  
       <div class="col-md-4">
         <center>
             <div class="containerc">
-              <img src="{{k.album.images.1.url}}" class="mb-3 image" alt="Album Cover Art">
+              <!-- Song Cover Picture -->
+              <img src="{{k.album.images.1.url}}" width="300px" height="300px" class="mb-3 image" alt="Song Cover Picture">
               <div class="middle">
                 <h5 class="text">Song<br/><a class="c" href="{{k.external_urls.spotify}}" target="_blank" style="text-decoration: none; font-size: 18px;">{{k.name}}</a></h5>
                 <h5 class="text">Artist<br/><a class="c" href="{{k.artists.0.external_urls.spotify}}" target="_blank" style="text-decoration: none; font-size: 18px;">{{k.artists.0.name}}</a></h5>
@@ -47,6 +52,8 @@
       </div>
     {% endfor %}
   </div>
+
+<!-- Displaying New Releases Albums -->
 {% else %}
   <h1 style="text-align: center; margin-bottom: 30px;">New Releases</h1>
   <div class="row">
@@ -54,6 +61,7 @@
       <div class="col-md-4">
         <center>
             <div class="containerc">
+              <!-- Album Cover Art -->
               <img src="{{k.images.1.url}}" class="mb-3 image" alt="Album Cover Art">
               <div class="middle">
                 <h5 class="text">Album<br/><a class="c" href="{{k.external_urls.spotify}}" target="_blank" style="text-decoration: none; font-size: 18px;">{{k.name}}</a></h5>

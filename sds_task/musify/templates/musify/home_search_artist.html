@@ -1,6 +1,7 @@
 {% extends "musify/base_artist.html" %} 
 {% load static %}
 {% block content %} 
+<!-- Displaying the tabs -->
 <center>
   <div class="row">
     <div class="" style="width: 12.5%;">
@@ -30,14 +31,16 @@
   </div>
 </center>
 <hr/>
+
+<!-- Displaying search results -->
 {% if flag == "search" %}
-  <h1 style="text-align: center;">Search Results</h1>
+  <h1 style="text-align: center; margin-bottom: 30px;">Search Results</h1>
   <div class="row">
     {% for k in data %}
       <div class="col-md-4">
         <center>
             <div class="containerc">
-              <img src="{{k.images.0.url}}" class="mb-3 image" height="300px" width="300px" alt="Artist's Picture">
+              <img src="{{k.images.0.url}}" width="300px" height="300px" class="mb-3 image" height="300px" width="300px" alt="Artist's Picture">
               <div class="middle">
                 <h5 class="text">Artist<br/><a class="c" href="{{k.external_urls.spotify}}" target="_blank" style="text-decoration: none; font-size: 18px;">{{k.name}}</a></h5>
               </div>
@@ -46,6 +49,8 @@
       </div>
     {% endfor %}
   </div>
+
+<!-- Search Message -->
 {% else %}
   <h1 style="text-align: center;">Search for various Artists in the top search bar.</h1>
 {% endif %}
