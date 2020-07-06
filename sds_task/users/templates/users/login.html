@@ -17,12 +17,16 @@
                 </small>
             </div>
         </form>
-        <div class="border-top pt-3">
+        <div class="border-top pt-3 pb-3">
             <small class="text-muted">
                 <!-- Signup Link -->
                 Need an Account?
                 <a href="{% url 'register' %}" class="ml-2">Sign up</a>
             </small>
+        </div>
+        OR
+        <div class="pt-3">
+            <a href="{% url 'social:begin' 'spotify' %}">Login with Spotify</a>
         </div>
     </div>
 {% endblock content %}
