@@ -36,7 +36,7 @@ def home_search_artist(request):
 
     else:
         r = sp.client.new_releases()
-        return render(request, 'musify/home_search_artist.html', {'title': 'Home', 'data': r["albums"]["items"], "flag": "search_artist"})
+        return render(request, 'musify/home_search_artist.html', {'title': 'Home', 'data': r["albums"]["items"]})
 
 @login_required                                 # Decorator used so that only authenticated user can view this page.
 # Method for Playlists tab.
@@ -49,7 +49,7 @@ def home_search_playlist(request):
 
     else:
         r = sp.client.new_releases()
-        return render(request, 'musify/home_search_playlist.html', {'title': 'Home', 'data': r["albums"]["items"], "flag": "search_playlist"})
+        return render(request, 'musify/home_search_playlist.html', {'title': 'Home', 'data': r["albums"]["items"]})
 
 @login_required                                 # Decorator used so that only authenticated user can view this page.
 # Method for Albums tab.
@@ -62,7 +62,7 @@ def home_search_album(request):
 
     else:
         r = sp.client.new_releases()
-        return render(request, 'musify/home_search_album.html', {'title': 'Home', 'data': r["albums"]["items"], "flag": "search_album"})
+        return render(request, 'musify/home_search_album.html', {'title': 'Home', 'data': r["albums"]["items"]})
 
 @login_required                                 # Decorator used so that only authenticated user can view this page.
 # Method for Pop tab.
