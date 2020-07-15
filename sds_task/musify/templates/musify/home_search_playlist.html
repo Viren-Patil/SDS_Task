@@ -40,7 +40,11 @@
       <div class="col-md-4">
         <center>
             <div class="containerc">
-              <img src="{{k.images.0.url}}" width="300px" height="300px" class="mb-3 image" height="300px" width="300px" alt="Playlist Cover Art">
+              {% if not k.images|length_is:"0" %}
+                <img src="{{k.images.0.url}}" width="300px" height="300px" class="mb-3 image" height="300px" width="300px" alt="Artist's Picture">
+              {% else %}
+                <img src="{% static 'musify/backup_playlist.jpg' %}" width="300px" height="300px" class="mb-3 image" height="300px" width="300px" alt="Artist's Picture">
+              {% endif %}
               <div class="middle">
                 <h5 class="text">Playlist<br/><a class="c" href="{{k.external_urls.spotify}}" target="_blank" style="text-decoration: none; font-size: 18px;">{{k.name}}</a></h5>
               </div>
