@@ -34,16 +34,24 @@
 
 <!-- Displaying search results -->
 {% if flag == "search" %}
-  <h1 style="text-align: center;">Search Results</h1>
-  {% for k in data %}
-    {% for j, i in k.items %}
-      {% if j == 'images' %}
-        <img src="{{i.1.url}}" alt=""><br/><hr/>
-      {% else %}
-      {{ j }} : {{ i }}<br/><hr/>
-      {% endif %}
+  <h1 style="text-align: center; margin-bottom: 30px;">Search Results</h1>
+  <div class="row">
+    <!-- Extracting data from the json response -->
+    {% for k in data %}  
+      <div class="col-md-4">
+        <center>
+            <div class="containerc">
+              <!-- Song Cover Picture -->
+              <img src="{{k.album.images.1.url}}" width="300px" height="300px" class="mb-3 image" alt="Song Cover Picture">
+              <div class="middle">
+                <h5 class="text">Song<br/><a class="c" href="{{k.external_urls.spotify}}" target="_blank" style="text-decoration: none; font-size: 18px;">{{k.name}}</a></h5>
+                <h5 class="text">Artist<br/><a class="c" href="{{k.artists.0.external_urls.spotify}}" target="_blank" style="text-decoration: none; font-size: 18px;">{{k.artists.0.name}}</a></h5>
+              </div>
+            </div>
+        </center>
+      </div>
     {% endfor %}
-  {% endfor %}
+  </div>
 
 <!-- Displaying Pop Playlists -->
 {% else %}
